@@ -8,7 +8,7 @@ class Model {
       if (name.split(" ").filter((n) => n).length <= 1) {
         errorMessage.push("name minimal 2 kata");
       }
-      if (minSize != Number(minSize) && maxSize != Number(maxSize)) {
+      if (minSize != Number(minSize) || maxSize != Number(maxSize)) {
         errorMessage.push("minSize dan maxSize must be number");
       }
       if (Number(minSize) >= Number(maxSize)) {
