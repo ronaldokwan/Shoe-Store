@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+require("dotenv").config();
+const port = process.env.APP_PORT;
 const Controller = require("./controllers/controller");
+require("dotenv").config();
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
