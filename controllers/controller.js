@@ -30,7 +30,7 @@ class Controller {
   }
   static async available(req, res) {
     try {
-      await Model.available(req.body);
+      await Model.available(req.params.id);
       res.redirect("/");
     } catch (error) {
       console.log(error);
@@ -39,7 +39,7 @@ class Controller {
   }
   static async discontinue(req, res) {
     try {
-      await Model.discontinue(req.body);
+      await Model.discontinue(req.params.id);
       res.redirect("/");
     } catch (error) {
       console.log(error);

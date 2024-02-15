@@ -27,12 +27,12 @@
       <td><%= element.minSize %>-<%= element.maxSize %></td>
       <td><%= element.status %></td>
       <% if (element.status==="Available") { %>
-      <td><a href="/shoes/status/:id/available">Available</a></td>
+      <td><a href="/shoes/status/<%= element.id %>/discontinue">Discontinue</a></td>
       <% } %>
       <%  if (element.status==="Discontinued") { %>
-      <td><a href="/shoes/status/:id/discontinue">Discontinue</a></td>
+      <td><a href="/shoes/status/<%= element.id %>/available">Available</a></td>
       <% } %>
-      <td><a href="/shoes/delete/:id"></a>Delete</td>
+      <td><a href="/shoes/delete/<%= element.id %>">Delete</a></td>
     </tr>
     <% }) %>
   </table>
