@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoe Store</title>
+</head>
+
+<body>
+  <h1>Shoe Store</h1>
+  <a href="/shoes/add">Add</a>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Size</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      <% data.forEach(element => { %>
+      <td><%= element.id %></td>
+      <td><%= element.name %></td>
+      <td><%= element.categoryId %></td>
+      <td><%= element.minSize %>-<%= element.maxSize %></td>
+      <% if (element.status==="available") { %>
+      <td><a href="/shoes/status/:id/available"></a></td>
+      <% } %>
+      <%  if (element.status==="discontinue") { %>
+      <td><a href="/shoes/status/:id/discontinue"></a></td>
+      <% } %>
+      <td><a href="/shoes/delete/:id"></a></td>
+      <% }) %>
+    </tr>
+  </table>
+</body>
+
+</html>
