@@ -3,7 +3,8 @@ const Model = require("../models/model");
 class Controller {
   static async root(req, res) {
     try {
-      res.render("Home");
+      let data = await Model.root();
+      res.render("Home", { data });
     } catch (error) {
       console.log(error);
       res.send(error);

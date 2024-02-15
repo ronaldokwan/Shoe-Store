@@ -19,21 +19,22 @@
       <th>Status</th>
       <th>Action</th>
     </tr>
+    <% data.forEach(element => { %>
     <tr>
-      <% data.forEach(element => { %>
       <td><%= element.id %></td>
       <td><%= element.name %></td>
       <td><%= element.categoryId %></td>
       <td><%= element.minSize %>-<%= element.maxSize %></td>
-      <% if (element.status==="available") { %>
-      <td><a href="/shoes/status/:id/available"></a></td>
+      <td><%= element.status %></td>
+      <% if (element.status==="Available") { %>
+      <td><a href="/shoes/status/:id/available">Available</a></td>
       <% } %>
-      <%  if (element.status==="discontinue") { %>
-      <td><a href="/shoes/status/:id/discontinue"></a></td>
+      <%  if (element.status==="Discontinued") { %>
+      <td><a href="/shoes/status/:id/discontinue">Discontinue</a></td>
       <% } %>
-      <td><a href="/shoes/delete/:id"></a></td>
-      <% }) %>
+      <td><a href="/shoes/delete/:id"></a>Delete</td>
     </tr>
+    <% }) %>
   </table>
 </body>
 
