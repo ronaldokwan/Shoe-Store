@@ -5,22 +5,22 @@ let categories = fs.readFileSync("./data/categories.json");
 categories = JSON.parse(categories);
 
 let categoriesData = categories.map((element) => {
-  return `('${element.id}','${element.name}')`;
+  return `('${element.name}')`;
 });
 
 let shoes = fs.readFileSync("./data/shoes.json");
 shoes = JSON.parse(shoes);
 
 let shoesData = shoes.map((element) => {
-  return `('${element.id}','${element.name}','${element.categoryId}','${element.minSize}','${element.maxSize}','${element.status}')`;
+  return `('${element.name}','${element.categoryId}','${element.minSize}','${element.maxSize}','${element.status}')`;
 });
 
 const categoriesInsert = `
-INSERT INTO "Categories" ("id","name") VALUES ${categoriesData}
+INSERT INTO "Categories" ("name") VALUES ${categoriesData}
 `;
 
 const shoesInsert = `
-INSERT INTO "Shoes" ("id","name","categoryId","minSize","maxSize","status") VALUES ${shoesData}
+INSERT INTO "Shoes" ("name","categoryId","minSize","maxSize","status") VALUES ${shoesData}
 `;
 
 async function seed() {

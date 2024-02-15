@@ -9,10 +9,24 @@
 
 <body>
   <form action="/shoes/add" method="post">
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname"><br><br>
-    <label for="lname">Last name:</label>
-    <input type="text" id="lname" name="lname"><br><br>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="categoryId">Category</label>
+    <select id="categoryId" name="categoryId">
+      <% data.forEach(element=> { %>
+      <option value="<%= element.id %>">
+        <%= element.name %>
+      </option>
+      <% }) %>
+    </select><br>
+    <label for="minSize">Min Size</label>
+    <input type="number" id="minSize" name="minSize"><br><br>
+    <label for="maxSize">Max Size</label>
+    <input type="number" id="maxSize" name="maxSize"><br><br>
+    <select id="status" name="status">
+      <option value="Available">Available</option>
+      <option value="Discontinued">Discontinued</option>
+    </select><br>
     <input type="submit" value="Submit">
   </form>
 </body>
